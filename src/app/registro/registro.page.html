@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Formulario de Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+
+    <!-- Nombre -->
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" formControlName="nombre"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="nombre?.invalid && nombre?.touched">
+      <small *ngIf="nombre?.errors?.['required']">El nombre es obligatorio.</small>
+      <small *ngIf="nombre?.errors?.['minlength']">Debe tener al menos 3 caracteres.</small>
+    </ion-text>
+
+    <!-- Teléfono -->
+    <ion-item>
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input type="tel" formControlName="telefono"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="telefono?.invalid && telefono?.touched">
+      <small *ngIf="telefono?.errors?.['required']">El teléfono es obligatorio.</small>
+      <small *ngIf="telefono?.errors?.['pattern']">Solo se permiten números.</small>
+    </ion-text>
+
+    <!-- Fecha de nacimiento -->
+    <ion-item>
+      <ion-label position="floating">Fecha de Nacimiento</ion-label>
+      <ion-datetime formControlName="fechaNacimiento" displayFormat="YYYY-MM-DD"></ion-datetime>
+    </ion-item>
+    <ion-text color="danger" *ngIf="fechaNacimiento?.invalid && fechaNacimiento?.touched">
+      <small>La fecha de nacimiento es obligatoria.</small>
+    </ion-text>
+
+    <!-- Botón -->
+    <ion-button expand="block" type="submit" [disabled]="registroForm.invalid" color="success">
+      Registrar
+    </ion-button>
+
+  </form>
+</ion-content>
