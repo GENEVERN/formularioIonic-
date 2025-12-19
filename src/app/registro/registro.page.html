@@ -7,7 +7,7 @@
 <ion-content class="ion-padding">
   <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
 
-    <!-- Nombre -->
+    
     <ion-item>
       <ion-label position="floating">Nombre</ion-label>
       <ion-input type="text" formControlName="nombre"></ion-input>
@@ -17,7 +17,7 @@
       <small *ngIf="nombre?.errors?.['minlength']">Debe tener al menos 3 caracteres.</small>
     </ion-text>
 
-    <!-- Teléfono -->
+    
     <ion-item>
       <ion-label position="floating">Teléfono</ion-label>
       <ion-input type="tel" formControlName="telefono"></ion-input>
@@ -27,7 +27,7 @@
       <small *ngIf="telefono?.errors?.['pattern']">Solo se permiten números.</small>
     </ion-text>
 
-    <!-- Fecha de nacimiento -->
+    
     <ion-item>
       <ion-label position="floating">Fecha de Nacimiento</ion-label>
       <ion-datetime formControlName="fechaNacimiento" displayFormat="YYYY-MM-DD"></ion-datetime>
@@ -36,7 +36,7 @@
       <small>La fecha de nacimiento es obligatoria.</small>
     </ion-text>
 
-    <!-- Botón -->
+    
     <ion-button expand="block" type="submit" [disabled]="registroForm.invalid" color="success">
       Registrar
     </ion-button>
